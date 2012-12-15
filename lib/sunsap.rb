@@ -1,3 +1,3 @@
-class Sunsap
-  VERSION = '1.0.0'
+module Sunsap
+  VERSION = '0.1.0'
 end
