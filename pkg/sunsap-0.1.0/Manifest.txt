@@ -1,6 +1,0 @@
-.autotest
-History.txt
-Manifest.txt
-README.markdown
-Rakefile
-lib/sunsap.rb
