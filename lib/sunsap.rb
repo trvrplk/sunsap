@@ -43,14 +43,34 @@ module Sunsap
       def queue
         @queue
       end
+      true
     end
   end
 
   class Reader
+    # Public: Make a reader
+    #
+    # reporter - reporter to read the queue of
+    #
+    # Examples:
+    # 
+    #     reader = Sunsap::Reader.new(Sunsap::Reporter.new("test"))
+    #     # => true
     def initialize(reporter)
       @reporter = reporter
+      true
     end
-
+    
+    # Public: Read the queue in a more friendly matter
+    # Examples:
+    # 
+    #     reporter = Sunsap::Reporer.new("test")
+    #     reporter.send_test_message("Success!")
+    #     reader = Sunsap::Reader.new
+    #     reader.read
+    #     # => "Messages: 1, Queue: ["Success!"]"
+    #
+    # Returns Messages and the Queue
     def read
       queuesize = @reporter.queue.size
       queue = @reporter.queue.map do |m|
@@ -58,6 +78,16 @@ module Sunsap
       end
       "Messages: #{queuesize}, Queue: #{queue}"
     end
+
+    # Public: Read the queue if it's not empty
+    #
+    # Examples:
+    #
+    #     reporter = Sunsap::Reporer.new
+    #     reader = Sunsap::Reader.new
+    #     reader.read!
+    #     # => error: RuntimeError: Queue was empty
+    # Returns Messages and the Queue or raises RuntimeError if the queue is empty
     def read!
       queuesize = @reporter.queue.size
       unless queuesize >= 1
