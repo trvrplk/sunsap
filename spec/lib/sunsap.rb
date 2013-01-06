@@ -14,4 +14,10 @@ describe Sunsap do
     results = reader.read
     results.should eq 'Messages: 1, Queue: ["Success!"]'
   end
+
+  it "won't accept empty queues if called with a '!'" do
+    reporter = Sunsap::Reporter.new("test")
+    reader = Sunsap::Reader.new(reporter)
+    expect { results = reader.read! }.to raise_error RuntimeError
+  end
 end

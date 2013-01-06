@@ -58,5 +58,16 @@ module Sunsap
       end
       "Messages: #{queuesize}, Queue: #{queue}"
     end
+    def read!
+      queuesize = @reporter.queue.size
+      unless queuesize >= 1
+        raise "Queue was empty"
+      else
+        queue = @reporter.queue.map do |m|
+          "#{m}"
+        end
+        "Messages: #{queuesize}, Queue: #{queue}"
+      end
+    end
   end
 end
