@@ -45,4 +45,18 @@ module Sunsap
       end
     end
   end
+
+  class Reader
+    def initialize(reporter)
+      @reporter = reporter
+    end
+
+    def read
+      queuesize = @reporter.queue.size
+      queue = @reporter.queue.map do |m|
+       "#{m}"
+      end
+      "Messages: #{queuesize}, Queue: #{queue}"
+    end
+  end
 end
