@@ -1,11 +1,7 @@
-Sun, 16 Dec 2012 09:06:25 -0500
-./History.txt	Sun, 16 Dec 2012 08:09:40 -0500
-./lib/sunsap.rb	Sun, 16 Dec 2012 09:06:21 -0500
-./Manifest.txt	Sun, 16 Dec 2012 08:10:08 -0500
-./pkg/sunsap-0.1.0/History.txt	Sun, 16 Dec 2012 08:09:40 -0500
-./pkg/sunsap-0.1.0/lib/sunsap.rb	Sun, 16 Dec 2012 09:06:21 -0500
-./pkg/sunsap-0.1.0/Manifest.txt	Sun, 16 Dec 2012 08:10:08 -0500
-./pkg/sunsap-0.1.0/Rakefile	Sun, 16 Dec 2012 08:59:18 -0500
-./Rakefile	Sun, 16 Dec 2012 08:59:18 -0500
-./spec/lib/sunsap.rb	Sun, 16 Dec 2012 08:56:06 -0500
-./spec/spec_helper.rb	Sat, 15 Dec 2012 16:47:16 -0500
+Fri, 04 Jan 2013 17:11:47 -0500
+./History.txt	Sun, 16 Dec 2012 11:40:49 -0500
+./lib/sunsap.rb	Fri, 04 Jan 2013 17:10:51 -0500
+./Manifest.txt	Sun, 16 Dec 2012 11:40:49 -0500
+./Rakefile	Fri, 04 Jan 2013 17:10:51 -0500
+./spec/lib/sunsap.rb	Sun, 16 Dec 2012 11:40:49 -0500
+./spec/spec_helper.rb	Sun, 16 Dec 2012 11:40:49 -0500
