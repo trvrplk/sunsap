@@ -4,3 +4,4 @@ Manifest.txt
 README.markdown
 Rakefile
 lib/sunsap.rb
+spec/lib/sunsap_spec.rb
