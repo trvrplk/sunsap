@@ -1,7 +1,7 @@
 .autotest
 History.txt
 Manifest.txt
-README.markdown
+README.textile
 Rakefile
 lib/sunsap.rb
 spec/lib/sunsap_spec.rb

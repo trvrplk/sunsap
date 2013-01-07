@@ -15,7 +15,7 @@ Hoe.spec 'sunsap' do
   extra_deps << ['mocha',     "0.13.1"]
   extra_deps << ['simplecov', "0.7.1" ]
   
-  self.readme_file = "README.markdown"
+  self.readme_file = "README.textile"
   self.description = "Send messages to a reporter"
 end
 # vim: syntax=ruby
