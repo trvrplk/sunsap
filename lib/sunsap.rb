@@ -63,7 +63,23 @@ module Sunsap
       @reporter = reporter
       true
     end
+    # Read the queue the right way
+    # @api public
+    # @example Read a queue
+    #     reporter = Sunsap::Reporer.new("test")
+    #     reporter.send_test_message("Success!")
+    #     reader = Sunsap::Reader.new
+    #     reader.read
+    #     # => {:messages => 1, :queue => ["Success!"]}
+    def read
+      queuesize = @reporter.queue.size
+      queue = @reporter.queue.map do |m|
+       "#{m}"
+      end
 
+      {:messages => queuesize, :queue => queue}
+    end
+   
     # Read the queue in a more friendly matter
     #
     # @api public
