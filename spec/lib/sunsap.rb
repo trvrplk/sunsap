@@ -16,6 +16,11 @@ describe Sunsap do
     results[:queue].should eq ["Success!"]
   end
 
+  it "can read things from reporters if called with a '!'" do
+    reporter = Sunsap::Reporter.new("test")
+    reader = Sunsap::Reader.new(reporter)
+    expect { results = reader.read_friendly! }.to raise_error RuntimeError
+  end
   it "can read things from reporters in a friendly way" do
     reporter = Sunsap::Reporter.new("test")
     reporter.send_test_message "Success!"

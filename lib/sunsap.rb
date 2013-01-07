@@ -79,7 +79,30 @@ module Sunsap
 
       {:messages => queuesize, :queue => queue}
     end
-   
+
+    # Read the queue if it's not empty
+    #
+    # @api public
+    # @example Read a queue
+    #
+    #     reporter = Sunsap::Reporer.new
+    #     reader = Sunsap::Reader.new
+    #     reader.read!
+    #     # => error: RuntimeError: Queue was empty
+    #
+    # @returns Messages and the Queue or raises RuntimeError if the queue is empty
+    def read!
+      queuesize = @reporter.queue.size
+      unless queuesize >= 1
+        raise "Queue was empty"
+      else
+        queue = @reporter.queue.map do |m|
+          "#{m}"
+        end
+      end
+      {:messages => queuesize, :queue => queue}
+    end
+
     # Read the queue in a more friendly matter
     #
     # @api public
