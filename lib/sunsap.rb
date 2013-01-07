@@ -4,42 +4,45 @@ module Sunsap
 
   # The reporter
   class Reporter
-    # Public: Create a new reporter
+    # Create a new reporter
     #
-    # reportername - the name of the reporter as a string
+    #  @api public
+    #  @param [reportername] the name of the reporter as a string
     #
-    # Examples
+    # @example Make a new reporter
     #
     #   reporter = Sunsap::Reporter.new("test")
     #   # => true
     #
-    # Returns true
+    # @returns true
     def initialize(reportername)
       @queue = []
 
-      # Public: Send a message to the queue
+      # Send a message to the queue
       #
-      # m - message to send
+      # @api public
+      # @param [m] message to send
       #
-      # Example:
+      # @example Send a message
       #
       #   reporter.send_test_message "Success!"
       #   # => true
       #
-      # Returns true
+      # @returns true
       self.class.send :define_method, "send_#{reportername}_message" do |m|
         @queue.push(m)
         true
       end
 
-      # Public: View the queue
+      # View the queue
       #
-      # Example:
+      # @api public
+      # @example Read a queue
       #
       #   reporter.queue
       #   # => ["Success!"]
       #
-      # Returns Array of messages
+      # @returns Array of messages
       def queue
         @queue
       end
@@ -48,11 +51,11 @@ module Sunsap
   end
 
   class Reader
-    # Public: Make a reader
+    # Make a reader
     #
-    # reporter - reporter to read the queue of
+    # @params [reporter] reporter to read the queue of
     #
-    # Examples:
+    # @example Make a new instance of the `Reader` class
     # 
     #     reader = Sunsap::Reader.new(Sunsap::Reporter.new("test"))
     #     # => true
@@ -60,18 +63,19 @@ module Sunsap
       @reporter = reporter
       true
     end
-    
-    # Public: Read the queue in a more friendly matter
-    # Examples:
-    # 
+
+    # Read the queue in a more friendly matter
+    #
+    # @api public
+    # @example Read a queue
     #     reporter = Sunsap::Reporer.new("test")
     #     reporter.send_test_message("Success!")
     #     reader = Sunsap::Reader.new
     #     reader.read
     #     # => "Messages: 1, Queue: ["Success!"]"
     #
-    # Returns Messages and the Queue
-    def read
+    # @returns Messages and the Queue
+    def read_friendly
       queuesize = @reporter.queue.size
       queue = @reporter.queue.map do |m|
        "#{m}"
@@ -79,16 +83,18 @@ module Sunsap
       "Messages: #{queuesize}, Queue: #{queue}"
     end
 
-    # Public: Read the queue if it's not empty
+    # Read the queue if it's not empty
     #
-    # Examples:
+    # @api public
+    # @example Read a queue
     #
     #     reporter = Sunsap::Reporer.new
     #     reader = Sunsap::Reader.new
     #     reader.read!
     #     # => error: RuntimeError: Queue was empty
-    # Returns Messages and the Queue or raises RuntimeError if the queue is empty
-    def read!
+    #
+    # @returns Messages and the Queue or raises RuntimeError if the queue is empty
+    def read_friendly!
       queuesize = @reporter.queue.size
       unless queuesize >= 1
         raise "Queue was empty"

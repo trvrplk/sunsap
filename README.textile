@@ -4,5 +4,4 @@ h1. sunsap
 https://github.com/weddingcakes/sunsap
 !https://codeclimate.com/badge.png!:https://codeclimate.com/github/weddingcakes/sunsap
 
-h1. Copyright
 Copyright (C) 2012 weddingcakes. See LICENSE.txt for more.

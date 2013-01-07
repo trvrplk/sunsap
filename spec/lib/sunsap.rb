@@ -7,17 +7,17 @@ describe Sunsap do
     reporter.queue.should eq ["Success!"]
   end
 
-  it "can read things from reporters" do
+  it "can read things from reporters in a friendly wary" do
     reporter = Sunsap::Reporter.new("test")
     reporter.send_test_message "Success!"
     reader = Sunsap::Reader.new(reporter)
-    results = reader.read
+    results = reader.read_friendly
     results.should eq 'Messages: 1, Queue: ["Success!"]'
   end
 
-  it "won't accept empty queues if called with a '!'" do
+  it "won't accept empty queues if `read_friendly` is called with a '!'" do
     reporter = Sunsap::Reporter.new("test")
     reader = Sunsap::Reader.new(reporter)
-    expect { results = reader.read! }.to raise_error RuntimeError
+    expect { results = reader.read_friendly! }.to raise_error RuntimeError
   end
 end
