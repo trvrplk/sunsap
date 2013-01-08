@@ -134,9 +134,7 @@ module Sunsap
     private
 
     def queue
-      queue = @reporter.queue.map do |m|
-        "#{m}"
-      end
+      queue = @reporter.queue
     end
 
     def queuesize
