@@ -18,5 +18,4 @@ gem "redcarpet"
 gem "hoe", "~>3.4", :group => [:development, :test]
 
 gem "teamocil", :group => [:development, :test]
-
 # vim: syntax=ruby
