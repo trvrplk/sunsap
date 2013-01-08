@@ -71,12 +71,8 @@ module Sunsap
     #     reader = Sunsap::Reader.new
     #     reader.read
     #     # => {:messages => 1, :queue => ["Success!"]}
+    
     def read
-      queuesize = @reporter.queue.size
-      queue = @reporter.queue.map do |m|
-       "#{m}"
-      end
-
       {:messages => queuesize, :queue => queue}
     end
 
@@ -92,13 +88,10 @@ module Sunsap
     #
     # @returns Messages and the Queue or raises RuntimeError if the queue is empty
     def read!
-      queuesize = @reporter.queue.size
       unless queuesize >= 1
         raise "Queue was empty"
       else
-        queue = @reporter.queue.map do |m|
-          "#{m}"
-        end
+        queue
       end
       {:messages => queuesize, :queue => queue}
     end
@@ -115,10 +108,6 @@ module Sunsap
     #
     # @returns Messages and the Queue
     def read_friendly
-      queuesize = @reporter.queue.size
-      queue = @reporter.queue.map do |m|
-       "#{m}"
-      end
       "Messages: #{queuesize}, Queue: #{queue}"
     end
 
@@ -134,15 +123,24 @@ module Sunsap
     #
     # @returns Messages and the Queue or raises RuntimeError if the queue is empty
     def read_friendly!
-      queuesize = @reporter.queue.size
       unless queuesize >= 1
         raise "Queue was empty"
       else
-        queue = @reporter.queue.map do |m|
-          "#{m}"
-        end
+        queue
         "Messages: #{queuesize}, Queue: #{queue}"
       end
+    end
+
+    private
+
+    def queue
+      queue = @reporter.queue.map do |m|
+        "#{m}"
+      end
+    end
+
+    def queuesize
+      queuesize = @reporter.queue.size
     end
   end
 end
