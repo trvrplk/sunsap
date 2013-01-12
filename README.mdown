@@ -1,6 +1,5 @@
 # sunsap
-https://github.com/weddingcakes/sunsap
-
+[https://github.com/weddingcakes/sunsap](https://github.com/weddingcakes/sunsap)
 ![codeclimate](https://codeclimate.com/github/weddingcakes/sunsap)
 
 copyright (C) 2012 weddingcakes. See LICENSE.txt for more.
