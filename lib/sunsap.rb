@@ -140,5 +140,23 @@ module Sunsap
     def queuesize
       queuesize = @reporter.queue.size
     end
+
+    def if_null_quesize
+      raise_exception("Queue was empty") or print_friendly_queue
+    end
+
+    def print_friendly_queue
+      queue
+      "Messages: #{queuesize}, Queue: #{queue}"
+    end
+
+    def check_queuesize_null(m)
+      false if queuesize <= 0
+      true if quesize >= 1
+    end
+
+    def raise_exception(e)
+      check_queuesize_null or raise "#{e}"
+    end
   end
 end
